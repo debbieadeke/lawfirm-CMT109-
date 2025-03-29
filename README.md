@@ -1,0 +1,2 @@
+# lawfirm-CMT109-
+School project for CMT 109(Database Management).This projects consists of a law firm management system that allows users to generate reports and perform other administrative tasks.We are majorly focusing on the database especially the relationships and erd diagrams.
