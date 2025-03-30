@@ -27,9 +27,28 @@ body {
 
 
 /* About Section */
-.law-img {
-    max-width: 80%;
-    height: 60%;
+.law-img img {
+    width: 100%;  /* Ensures it scales to fit its container */
+    height: auto;  /* Maintains aspect ratio */
     border-radius: 10px;
+    display: block;  /* Removes extra spacing below images */
+    object-fit: cover; /* Ensures proper fitting */
 }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .law-img {
+        text-align: center;  /* Centers the image on smaller screens */
+    }
+    .law-img img {
+        max-width: 90%;  /* Adjusts size for tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .law-img img {
+        max-width: 100%; /* Ensures it fits within small screens */
+    }
+}
+
 
