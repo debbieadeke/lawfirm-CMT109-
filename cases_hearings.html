@@ -1,42 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
     <title>Cases & Hearings - Law Firm</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="index.css">
-</head>
-<body>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="index.html"><i class="bi bi-building"></i> Law Firm</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="clients_lawyers.html">Clients & Lawyers</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="cases_hearings.html">Cases & Hearings</a></li>
-                    <li class="nav-item"><a class="nav-link" href="appointments.html">Appointments</a></li>
-                </ul>
-            </div>
+      <div class="container">
+        <a class="navbar-brand" href="index.html"
+          ><i class="bi bi-building"></i> Law Firm</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="clients_lawyers.html"
+                >Clients & Lawyers</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="cases_hearings.html"
+                >Cases & Hearings</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="appointments.html">Appointments</a>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
 
     <!-- Page Header -->
     <header class="bg-primary text-white text-center py-4">
-        <div class="container">
-            <h1><i class="bi bi-folder2-open"></i> Cases & Hearings</h1>
-            <p>Tracking ongoing and past legal cases along with court hearing details.</p>
-        </div>
+      <div class="container">
+        <h1><i class="bi bi-folder2-open"></i> Cases & Hearings</h1>
+        <p>
+          Tracking ongoing and past legal cases along with court hearing
+          details.
+        </p>
+      </div>
     </header>
 
     <!-- Cases Table -->
-    <section class="container my-5">
+    <!-- <section class="container my-5">
         <h2 class="text-center">Cases List</h2>
         <div class="table-responsive">
             <table class="table table-bordered table-striped">
@@ -73,51 +107,135 @@
                 </tbody>
             </table>
         </div>
+    </section> -->
+
+    <section class="container my-5">
+      <h2 class="text-center">Add New Case</h2>
+      <form action="add_case.php" method="POST">
+        <div class="mb-3">
+          <label for="case_number" class="form-label">Case Number</label>
+          <input
+            type="text"
+            class="form-control"
+            id="case_number"
+            name="case_number"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="client_id" class="form-label">Client ID</label>
+          <input
+            type="number"
+            class="form-control"
+            id="client_id"
+            name="client_id"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="lawyer_id" class="form-label">Lawyer ID</label>
+          <input
+            type="number"
+            class="form-control"
+            id="lawyer_id"
+            name="lawyer_id"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="case_details" class="form-label">Case Type</label>
+          <input
+            type="text"
+            class="form-control"
+            id="case_details"
+            name="case_details"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="status" class="form-label">Case Status</label>
+          <select class="form-control" id="status" name="status" required>
+            <option value="open">Open</option>
+            <option value="closed">Closed</option>
+            <option value="pending" selected>Pending</option>
+          </select>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="filing_date" class="form-label">Filing Date</label>
+            <input
+              type="date"
+              class="form-control"
+              id="filing_date"
+              name="filing_date"
+            />
+          </div>
+          <div class="col-md-6">
+            <label for="closing_date" class="form-label">Closing Date</label>
+            <input
+              type="date"
+              class="form-control"
+              id="closing_date"
+              name="closing_date"
+            />
+          </div>
+        </div>
+        <div class="row g-2">
+          <div class="col-12 col-md-6 d-grid">
+            <button type="submit" class="btn btn-primary">Add Case</button>
+          </div>
+          <div class="col-12 col-md-6 d-grid">
+            <a href="cases_report.php" class="btn btn-primary">View Report</a>
+          </div>
+        </div>
+      </form>
     </section>
 
     <!-- Court Hearings Table -->
     <section class="container my-5">
-        <h2 class="text-center">Court Hearings</h2>
-        <div class="table-responsive">
-            <table class="table table-bordered table-striped">
-                <thead class="table-dark">
-                    <tr>
-                        <th>Hearing ID</th>
-                        <th>Case ID</th>
-                        <th>Hearing Date</th>
-                        <th>Judge Name</th>
-                        <th>Court Location</th>
-                        <th>Outcome</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>201</td>
-                        <td>101</td>
-                        <td>2024-02-15</td>
-                        <td>Hon. Jane Williams</td>
-                        <td>Supreme Court</td>
-                        <td>Pending</td>
-                    </tr>
-                    <tr>
-                        <td>202</td>
-                        <td>102</td>
-                        <td>2023-10-05</td>
-                        <td>Hon. Mark Robinson</td>
-                        <td>Family Court</td>
-                        <td>Settled</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+      <h2 class="text-center">Court Hearings</h2>
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+          <thead class="table-dark">
+            <tr>
+              <th>Hearing ID</th>
+              <th>Case ID</th>
+              <th>Hearing Date</th>
+              <th>Judge Name</th>
+              <th>Court Location</th>
+              <th>Outcome</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>201</td>
+              <td>101</td>
+              <td>2024-02-15</td>
+              <td>Hon. Jane Williams</td>
+              <td>Supreme Court</td>
+              <td>Pending</td>
+            </tr>
+            <tr>
+              <td>202</td>
+              <td>102</td>
+              <td>2023-10-05</td>
+              <td>Hon. Mark Robinson</td>
+              <td>Family Court</td>
+              <td>Settled</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-dark text-white text-center py-3">
-        <p>&copy; 2024 Law Firm. All Rights Reserved.</p>
+      <p>&copy; 2024 Law Firm. All Rights Reserved.</p>
     </footer>
 
     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
-</body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      defer
+    ></script>
+  </body>
 </html>

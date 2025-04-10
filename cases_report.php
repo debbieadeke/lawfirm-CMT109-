@@ -1,7 +1,7 @@
 <?php
 include 'db_connect.php'; 
 
-$sql = "SELECT * FROM lawyers";
+$sql = "SELECT * FROM cases";
 $result = $conn->query($sql);
 ?>
 
@@ -25,37 +25,39 @@ $result = $conn->query($sql);
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="clients_lawyers.html">Clients & Lawyers</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="lawyers_report.php">Lawyers Report</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cases_hearings.html">Cases & Hearings</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="lawyers_report.php">Cases Report</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <div class="container my-5">
-        <h2 class="text-center mb-4">Lawyers Report</h2>
-        <a href="clients_lawyers.html" class="btn btn-primary mb-3"><i class="bi bi-arrow-left"></i> Back</a>
+        <h2 class="text-center mb-4">Cases Report</h2>
+        <a href="cases_hearings.html" class="btn btn-primary mb-3"><i class="bi bi-arrow-left"></i> Back</a>
         <div class="table-responsive">
             <table class="table table-bordered table-striped">
                 <thead class="table-dark">
                     <tr>
-                        <th>Lawyer ID</th>
-                        <th>Name</th>
-                        <th>Contact</th>
-                        <th>Email</th>
-                        <th>Specialization</th>
-                        <th>Experience (Years)</th>
+                        <th>Case Number</th>
+                        <th>Client ID</th>
+                        <th>Lawyer Id</th>
+                        <th>Case Type</th>
+                        <th>Status</th>
+                        <th>Filing Date</th>
+                        <th>Closing Date</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php while ($row = $result->fetch_assoc()): ?>
                         <tr>
-                            <td><?php echo $row['id']; ?></td>
-                            <td><?php echo $row['name']; ?></td>
-                            <td><?php echo $row['contact']; ?></td>
-                            <td><?php echo $row['email']; ?></td>
-                            <td><?php echo $row['specialization']; ?></td>
-                            <td><?php echo $row['experience']; ?></td>
+                            <td><?php echo $row['case_number']; ?></td>
+                            <td><?php echo $row['client_id']; ?></td>
+                            <td><?php echo $row['lawyer_id']; ?></td>
+                            <td><?php echo $row['case_details']; ?></td>
+                            <td><?php echo $row['status']; ?></td>
+                            <td><?php echo $row['filing_date']; ?></td>
+                            <td><?php echo $row['closing_date']; ?></td>
                         </tr>
                     <?php endwhile; ?>
                 </tbody>
