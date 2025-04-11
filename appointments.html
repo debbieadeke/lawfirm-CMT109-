@@ -35,42 +35,68 @@
         </div>
     </header>
 
-    <!-- Appointments Table -->
+
+
     <section class="container my-5">
-        <h2 class="text-center">Scheduled Appointments</h2>
-        <div class="table-responsive">
-            <table class="table table-bordered table-striped">
-                <thead class="table-dark">
-                    <tr>
-                        <th>Appointment ID</th>
-                        <th>Client Name</th>
-                        <th>Lawyer Name</th>
-                        <th>Appointment Date</th>
-                        <th>Purpose</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>John Doe</td>
-                        <td>Jane Smith</td>
-                        <td>2024-07-10 14:00</td>
-                        <td>Legal Consultation</td>
-                        <td>Scheduled</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Michael Brown</td>
-                        <td>Emily Johnson</td>
-                        <td>2024-07-12 10:30</td>
-                        <td>Case Discussion</td>
-                        <td>Completed</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
+        <h2 class="text-center">Add New Appointment</h2>
+        <form action="add_appointment.php" method="POST">
+          <div class="mb-3">
+            <label for="clientid" class="form-label">Client ID</label>
+            <input
+              type="number"
+              class="form-control"
+              id="clientid"
+              name="clientid"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="lawyerid" class="form-label">Lawyer ID</label>
+            <input
+              type="number"
+              class="form-control"
+              id="lawyerid"
+              name="lawyerid"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="appointmentdate" class="form-label">Appointment Date</label>
+            <input
+              type="date"
+              class="form-control"
+              id="appointmentdate"
+              name="appointmentdate"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="purpose" class="form-label">Purpose</label>
+            <input
+              type="text"
+              class="form-control"
+              id="purpose"
+              name="purpose"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="status" class="form-label">Appointment Status</label>
+            <select class="form-control" id="status" name="status" required>
+              <option value="scheduled">Scheduled</option>
+              <option value="Completed">Completed</option>
+              <option value="cancelled">Cancelled</option>
+              <option value="scheduled" selected>Scheduled</option>
+            </select>
+          </div>
+          <div class="row g-2">
+            <div class="col-12 col-md-6 d-grid">
+              <button type="submit" class="btn btn-primary">Add Appointment</button>
+            </div>
+            <div class="col-12 col-md-6 d-grid">
+              <a href="appointment_report.php" class="btn btn-primary">View Report</a>
+            </div>
+          </div>
+        </form>
+      </section>
 
     <!-- Footer -->
     <footer class="bg-dark text-white text-center py-3">
