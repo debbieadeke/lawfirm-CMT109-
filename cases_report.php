@@ -51,13 +51,12 @@ $result = $conn->query($sql);
                 <tbody>
                     <?php while ($row = $result->fetch_assoc()): ?>
                         <tr>
-                            <td><?php echo $row['case_number']; ?></td>
-                            <td><?php echo $row['client_id']; ?></td>
-                            <td><?php echo $row['lawyer_id']; ?></td>
-                            <td><?php echo $row['case_details']; ?></td>
+                            <td><?php echo $row['clientid']; ?></td>
+                            <td><?php echo $row['lawyerid']; ?></td>
+                            <td><?php echo $row['casedetails']; ?></td>
                             <td><?php echo $row['status']; ?></td>
-                            <td><?php echo $row['filing_date']; ?></td>
-                            <td><?php echo $row['closing_date']; ?></td>
+                            <td><?php echo $row['filingdate']; ?></td>
+                            <td><?php echo $row['closingdate']; ?></td>
                         </tr>
                     <?php endwhile; ?>
                 </tbody>

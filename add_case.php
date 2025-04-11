@@ -15,21 +15,20 @@ if ($conn->connect_error) {
 
 // Handle form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $case_number = $_POST['case_number'];
-    $client_id = $_POST['client_id'];
-    $lawyer_id = $_POST['lawyer_id'];
-    $case_details = $_POST['case_details'];
+    $clientid = $_POST['clientid'];
+    $lawyerid = $_POST['lawyerid'];
+    $casedetails = $_POST['casedetails'];
     $status = $_POST['status'];
-    $filing_date = $_POST['filing_date'];
-    $closing_date = $_POST['closing_date'];
+    $filingdate = $_POST['filingdate'];
+    $closingdate = $_POST['closingdate'];
 
 
     // Prepare the SQL statement
-    $sql = "INSERT INTO cases (case_number, client_id, lawyer_id, case_details,status, filing_date, closing_date) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO cases ( clientid, lawyerid, casedetails,status, filingdate, closingdate) VALUES (?, ?, ?, ?, ?, ?)";
     
     // Use a prepared statement to prevent SQL injection
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("siissss", $case_number, $client_id, $lawyer_id, $case_details, $status, $filing_date, $closing_date);
+    $stmt->bind_param("iissss", $clientid, $lawyerid, $casedetails, $status, $filingdate, $closingdate);
     
     // Execute and check if successful
     if ($stmt->execute()) {
