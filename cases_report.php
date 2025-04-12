@@ -10,7 +10,7 @@ $result = $conn->query($sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lawyers Report</title>
+    <title>Cases Report</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="index.css" />
@@ -51,6 +51,7 @@ $result = $conn->query($sql);
                 <tbody>
                     <?php while ($row = $result->fetch_assoc()): ?>
                         <tr>
+                            <td><?php echo $row['caseid']; ?></td>
                             <td><?php echo $row['clientid']; ?></td>
                             <td><?php echo $row['lawyerid']; ?></td>
                             <td><?php echo $row['casedetails']; ?></td>
